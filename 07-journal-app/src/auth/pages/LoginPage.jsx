@@ -15,14 +15,16 @@ const formValidations = {
   password: [(value) => value.length >= 6, 'El password debe de tener más de 6 letras'],
 }
 
+const formData = {
+  email: 'luis@google.com',
+  password: '123456'
+}
+
 export const LoginPage = () => {
 
   const { status, errorMessage } = useSelector(state => state.auth)
 
-  const { email, password, onInputChange, formState, isFormValid, emailValid, passwordValid } = useForm({
-    email: 'luis@google.com',
-    password: '123456'
-  }, formValidations);
+  const { email, password, onInputChange, formState, isFormValid, emailValid, passwordValid } = useForm(formData, formValidations);
   const dispatch = useDispatch();
   const [formSubmitted, setFormSubmitted] = useState(false);
 
@@ -42,7 +44,6 @@ export const LoginPage = () => {
 
     dispatch(startGoogleSignIn())
 
-    console.log('onGoogle');
   }
 
   return (
