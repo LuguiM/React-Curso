@@ -24,7 +24,9 @@ app.use(express.json());
 // Auth
 app.use('/api/auth', require('./routes/auth'));
 
-// CRUD: Eve
+// CRUD: Eventos
+app.use('/api/events', require('./routes/events'));
+
 
 
 
