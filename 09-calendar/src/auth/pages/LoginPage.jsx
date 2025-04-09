@@ -24,6 +24,11 @@ export const LoginPage = () => {
 
     const loginSubmit = (event) => {
         event.preventDefault();
+        if (!loginEmail || !loginPassword) {
+            Swal.fire('Error', 'Todos los campos son obligatorios', 'warning');
+            return;
+          }
+          
         const data = { email: loginEmail, password: loginPassword }
         startLogin(data)
     }
